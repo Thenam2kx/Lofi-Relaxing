@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-Roboto h-screen w-full;
+  }
+}
+
+@layer components {
+  .controls {
+    @apply
+      w-full
+      px-3
+      fixed
+      bottom-5
+      left-0
+  }
+  .controlsWrapper {
+    @apply 
+      h-12
+      w-full
+      px-4
+      flex
+      gap-5
+      items-center
+      justify-center
+      border
+      rounded-lg
+      backdrop-blur-xl
+      sm:justify-between
+      sm:gap-0
+      border-borderControls
+      bg-bgControls
+      text-white
+  }
+  
+}
+
+@layer utilities {
+  .tooltip::before {
+    @apply
+      mb-5
+      border-borderControls
+      bg-bgControls
+  }
+  .divider-horizontal {
+    @apply m-0 p-0
+  }
+}
