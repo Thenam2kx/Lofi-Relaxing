@@ -24,11 +24,11 @@ export default function HandleControls () {
   btnPlay.addEventListener('click', () => {
     if (isPlaying === true) {
       btnPlay.setAttribute('src', '/images/play-icon.svg');
-      video.play();
+      video.pause();
       isPlaying = false;
     } else {
       btnPlay.setAttribute('src', '/images/pause-icon.svg');
-      video.pause();
+      video.play();
       isPlaying = true;
     }
     
