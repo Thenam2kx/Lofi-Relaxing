@@ -1,7 +1,8 @@
 export default function HandleControls () {
 
   const video = document.querySelector('.video');
-
+  const audio = document.querySelector('.audio');
+  
   const btnHome = document.querySelector('.btnHome');
 
   const btnPrev = document.querySelector('.btnPrev');
@@ -25,10 +26,12 @@ export default function HandleControls () {
     if (isPlaying === true) {
       btnPlay.setAttribute('src', '/images/play-icon.svg');
       video.pause();
+      audio.pause();
       isPlaying = false;
     } else {
       btnPlay.setAttribute('src', '/images/pause-icon.svg');
       video.play();
+      audio.play();
       isPlaying = true;
     }
     
