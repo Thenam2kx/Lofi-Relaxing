@@ -1,5 +1,6 @@
-export default function HandleControls () {
+import { musics } from "~/mock-data";
 
+export default function HandleControls () {
   const video = document.querySelector('.video');
   const audio = document.querySelector('.audio');
   
@@ -21,8 +22,20 @@ export default function HandleControls () {
   const btnFullScreen = document.querySelector('.btnFullScreen');
 
   let isPlaying = false;
+  let indexSong = 0;
 
-  btnPlay.addEventListener('click', () => {
+  audio.setAttribute('src', musics[indexSong].url)
+  btnPlay.addEventListener('click', PlayPause)
+
+  btnNext.addEventListener('click', () => {
+    ChangeSong(1);
+  })
+
+  btnPrev.addEventListener('click', () => {
+    ChangeSong(-1);
+  })
+
+  function PlayPause () {
     if (isPlaying === true) {
       btnPlay.setAttribute('src', '/images/play-icon.svg');
       video.pause();
@@ -34,6 +47,37 @@ export default function HandleControls () {
       audio.play();
       isPlaying = true;
     }
+  }
+
+  function ChangeSong (currentSong) {
+    if (currentSong === 1) {
+
+      if (indexSong >= musics.length - 1) {
+        indexSong = 0;
+        audio.setAttribute('src', musics[indexSong].url)
+        isPlaying = false
+        PlayPause()
+      } else {
+        indexSong++;
+        audio.setAttribute('src', musics[indexSong].url)
+        isPlaying= false
+        PlayPause()
+      }
+      
+    } else if (currentSong === -1) {
     
-  })
+      if (indexSong <= 0) {
+        indexSong = musics.length - 1;
+        audio.setAttribute('src', musics[indexSong].url)
+        isPlaying= false
+        PlayPause()
+      } else {
+        indexSong--;
+        audio.setAttribute('src', musics[indexSong].url)
+        isPlaying= false
+        PlayPause()
+      }
+    }
+  }
+
 }

@@ -3,7 +3,7 @@ import HandleTime from "./components/HandleTime";
 import HandleBackground from "./components/HandleBackground";
 import HandleMode from "./components/HandleMode";
 import HandleControls from "./components/HandleControls";
-HandleTime();
 HandleBackground();
+HandleTime();
 HandleMode();
 HandleControls();
